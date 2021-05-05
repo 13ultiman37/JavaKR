@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<div class="header">
+    <form th:if="${user != 'anonymous'}" th:action="@{/logout}" method="post">
+        <input type="submit" value="logout">
+    </form>
+
+    <a th:href="@{/login}">LOGIN</a>
+    <a th:href="@{/registration}">REGISTRATION</a>
+    <a th:href="@{/foruser}">FORUSER</a>
+    <a th:href="@{/foradmin}">FORADMIN</a>
+    <a th:if="${user != 'anonymous'}" th:text="${user}"></a>
+</div>
+</body>
+</html>
