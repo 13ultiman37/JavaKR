@@ -2,14 +2,29 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Вход</title>
+    <link media="all" rel="stylesheet" th:href="@{/css/logstyle.css}" type="text/css">
+    <link media="all" rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
 </head>
 <body>
-<h2>Login Page</h2>
-<form th:action="@{/login}" method="post">
-    username:<input type="text" name="username">
-    password:<input type="text" name="password">
-    <input type="submit" value="login">
-</form>
+<header>
+    <div class="header_menu">
+        <a th:href="@{/}" class="header_logo"><img th:src="@{/images/logo2.png}" alt="" class="header_img"></a>
+        <span class="empty_punkt"></span>
+    </div>
+</header>
+<div class="log">
+    <div class="logbox">
+        <span class="logheader">Вход</span>
+        <hr>
+        <form th:action="@{/login}" method="post">
+            <p><label for="username">Имя пользователя:</label>
+                <input type="text" name="username" id="username" class="inbox">
+            <p><label for="pass">Пароль:</label>
+                <input type="text" name="password" id="pass" class="inbox">
+            <p><input type="submit" value="Вход" class="butt">
+        </form>
+    </div>
+</div>
 </body>
 </html>

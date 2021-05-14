@@ -2,17 +2,35 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Registration</title>
+    <title>Регистрация</title>
+    <link media="all" rel="stylesheet" th:href="@{/css/regstyle.css}" type="text/css">
+    <link media="all" rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
 </head>
 <body>
-<h2>Registration Page</h2>
-<form th:action="@{/registration}" method="post">
-    username:<input type="text" name="username">
-    password:<input type="text" name="password">
-    name:<input type="text" name="name">
-    email:<input type="text" name="email">
-    phone:<input type="text" name="phone">
-    <input type="submit" value="registration">
-</form>
+<header>
+    <div class="header_menu">
+        <a th:href="@{/}" class="header_logo"><img th:src="@{/images/logo2.png}" alt="" class="header_img"></a>
+        <span class="empty_punkt"></span>
+    </div>
+</header>
+<div class="reg">
+    <div class="regbox">
+        <span class="regheader">Регистрация</span>
+        <hr>
+        <form th:action="@{/registration}" method="post">
+            <p><label for="username">Логин:</label>
+                <input type='text' name="username" id="username" class="inbox">
+            <p><label for="pass">Пароль:</label>
+                <input type='text' name="password" id="pass" class="inbox">
+            <p><label for='name'>Имя: </label>
+                <input type='text' name="name" id="name" class="inbox">
+            <p><label for="email">E-mail:</label>
+                <input type='text' name="email" id="email" class="inbox">
+            <p><label for="phone">Телефон:</label>
+                <input type='text' name="phone" id="phone" class="inbox">
+            <p><input type='submit' value="Зарегистрироваться" class="butt">
+        </form>
+    </div>
+</div>
 </body>
 </html>

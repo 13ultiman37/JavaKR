@@ -41,4 +41,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll();
     }
+
+    public void configure(WebSecurity web) {
+        web.ignoring()
+                .antMatchers(
+                        "/css/**", "/fonts/**",
+                        "/images/**");
+    }
 }
