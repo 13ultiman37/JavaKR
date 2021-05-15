@@ -1,0 +1,16 @@
+html, body{
+    padding: 0 4%;
+}
+
+.zagolovok{
+    font-family: "Bebas Neue Bold";
+    font-size: 40px;
+    padding-top: 100px;
+}
+
+@font-face {
+    font-family: "Bebas Neue Bold";
+    src:  url("../fonts/BebasNeue Bold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}

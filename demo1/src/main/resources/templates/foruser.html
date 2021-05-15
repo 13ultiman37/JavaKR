@@ -1,13 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Личный кабинет</title>
+    <link media="all" rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+    <link media="all" rel="stylesheet" th:href="@{/css/userstyle.css}" type="text/css">
 </head>
 <body>
 
 
-<h1>For User Page</h1>
+<header>
+    <div class="header_menu">
+        <a th:href="@{/}" class="header_logo"><img th:src="@{/images/logo2.png}" alt="" class="header_img"></a>
+        <span class="empty_punkt"></span>
+    </div>
+</header>
+<div class="welcome">
+    <p>Здравствуйте, <a th:text="${name}" class="user_name"></a>!
+    <form th:if="${user != 'anonymous'}" th:action="@{/logout}" method="post">
+        <input type="submit" value="Выход" class="butt">
+    </form>
+</div>
+<hr class="hr1">
+<a th:href="@{/order}">
+<button class="butt1">Оставить заявку</button>
+</a>
+<hr class="hr2">
+<div class="welcome second">
+    <p>История ваших заказов:</p>
+</div>
+<div class="">
+    <table>
+        <tbody>
+        <tr></tr>
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>

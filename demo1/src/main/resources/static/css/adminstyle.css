@@ -1,0 +1,25 @@
+html, body{
+    padding: 0 4%;
+}
+
+.logout{
+    width: 70px;
+    height: 30px;
+    margin: 30px;
+    font-family: "Bebas Neue Bold";
+    font-size: 20px;
+    text-align: center;
+    background-color: white;
+    border: 1px white solid;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+
+@font-face {
+    font-family: "Bebas Neue Bold";
+    src:  url("../fonts/BebasNeue Bold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}

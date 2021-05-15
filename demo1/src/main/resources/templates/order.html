@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Оставить заявку</title>
+    <link media="all" rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+    <link media="all" rel="stylesheet" th:href="@{/css/orderstyle.css}" type="text/css">
+</head>
+<body>
+<header>
+  <div class="header_menu">
+    <a th:href="@{/}" class="header_logo"><img th:src="@{/images/logo2.png}" alt="" class="header_img"></a>
+    <span class="empty_punkt"></span>
+  </div>
+</header>
+
+<p class="zagolovok">Заполните заявку:</p>
+<form th:action="@{/order}" method="post">
+    <p><label for="brand" name="brand">Марка:</label>
+        <select id="brand" name="brand">
+            <option>Выбрать...</option>
+            <option>Audi</option>
+            <option>BMW</option>
+            <option>Mercedes</option>
+            <option>Toyota</option>
+            <option>Nissan</option>
+            <option>Jaguar</option>
+            <option>Land Rover</option>
+        </select>
+    <p><label for="about">Модель:</label>
+        <input type='text' name="model" id="about" class="">
+    <p><label for="request">Необходимые работы:</label>
+        <input type='text' name="request" id="request" class="">
+    <p><label for="noti">Предпочтительный способ уведомления о завершении работ:</label>
+    <select id="noti" name="notification">
+        <option>Выбрать...</option>
+        <option>Звонок от менеджера</option>
+        <option>Письмо на E-Mail</option>
+    </select>
+    <p><input type='submit' value="Отправить заявку" class="">
+</form>
+</body>
+</html>

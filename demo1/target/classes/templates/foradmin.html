@@ -1,12 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.springframework.org/schema/security">
 <head>
     <meta charset="UTF-8">
-    <title>Страница админа</title>
+    <title>Менеджмент</title>
+    <link media="all" rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+    <link media="all" rel="stylesheet" th:href="@{/css/adminstyle.css}" type="text/css">
+
 </head>
 <body>
-
-<h1>For Admin Page</h1>
+<header>
+    <div class="header_menu">
+        <a th:href="@{/}" class="header_logo"><img th:src="@{/images/logo2.png}" alt="" class="header_img"></a>
+        <span class="empty_punkt"></span>
+        <form th:if="${user != 'anonymous'}" th:action="@{/logout}" method="post">
+            <input type="submit" value="Выход" class="logout">
+        </form>
+    </div>
+</header>
 
 </body>
 </html>

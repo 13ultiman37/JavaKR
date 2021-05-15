@@ -1,26 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.springframework.org/schema/security">
 <head>
     <meta charset="UTF-8">
     <title>LSC Автосервис</title>
     <link media="all" rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+    <link media="all" rel="stylesheet" th:href="@{/css/indexstyle.css}" type="text/css">
 </head>
 <body>
 <header>
     <div class="header_menu">
         <a th:href="@{/}" class="header_logo"><img th:src="@{/images/logo2.png}" alt="" class="header_img"></a>
         <span class="empty_punkt"></span>
-        <form th:if="${user != 'anonymous'}" th:action="@{/logout}" method="post">
-            <input type="submit" value="logout">
-        </form>
-
-        <a th:href="@{/login}" class="punkt">Вход</a>
-        <a th:href="@{/registration}" class="punkt">Регистрация</a>
-        <a th:href="@{/foruser}" class="punkt">Личный кабинет</a>
-        <a th:href="@{/foradmin}" class="punkt">админская</a>
-        <a th:if="${user != 'anonymous'}" th:text="${user}" class="user_name"></a>
+        <a sec:authorize="isAnonymous()" th:href="@{/login}" class="punkt">Вход</a>
+        <a sec:authorize="isAnonymous()" th:href="@{/registration}" class="punkt">Регистрация</a>
+        <a sec:authorize="hasAuthority('USER')" th:href="@{/foruser}" class="punkt">Личный кабинет</a>
+        <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/foradmin}" class="punkt">Список заявок</a>
     </div>
 </header>
-
 </body>
 </html>

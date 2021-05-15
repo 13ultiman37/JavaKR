@@ -1,0 +1,68 @@
+html, body{
+    padding: 0 4%;
+}
+
+.welcome{
+    font-family: "Bebas Neue Bold";
+    font-size: 50px;
+    padding-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+.second{
+    padding-top: 0px;
+}
+
+.butt{
+    width: 100%;
+    height: 30px;
+    margin: 20px;
+    font-family: "Bebas Neue Bold";
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #fff;
+    text-align: center;
+    background-color: #2a8df8;
+    border: 1px #2a8df8 solid;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.butt1{
+    width: 100%;
+    height: 60px;
+    font-family: "Bebas Neue Bold";
+    font-size: 30px;
+    letter-spacing: 1px;
+    color: #fff;
+    text-align: center;
+    background-color: #114c94;
+    border: 1px #114c94 solid;
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 0px 17px 20px 3px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+.butt1:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 17px 20px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hr1{
+    width: 85%;
+    margin-bottom: 30px;
+}
+
+.hr2{
+    width: 85%;
+    margin-top: 30px;
+}
+
+@font-face {
+    font-family: "Bebas Neue Bold";
+    src:  url("../fonts/BebasNeue Bold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
