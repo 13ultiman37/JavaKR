@@ -30,10 +30,26 @@
 <div class="welcome second">
     <p>История ваших заказов:</p>
 </div>
-<div class="">
+<div class="fulltable">
+        <span th:if="${orders.empty}" class="emptylist">Вы еще не совершили ни одного заказа :(</span>
     <table>
-        <tbody>
-        <tr></tr>
+
+        <tbody class="tbl">
+
+        <tr th:if="${not orders.empty}">
+            <td class="maintd"> Марка </td>
+            <td class="maintd"> Модель </td>
+            <td class="maintd"> Ваш заказ </td>
+            <td class="maintd"> Статус работ </td></tr>
+        <tr th:each="order : ${orders}" class="tablerow">
+            <td> <span th:text="${order.getBrand}"> </span></td>
+            <td> <span th:text="${order.getModel}"> </span></td>
+            <td> <span th:text="${order.getRequest}"> </span></td>
+            <td> <span th:switch="${order.completed}">
+                 <span th:case="true" class="yes">Завершено</span>
+                 <span th:case="false" class="no">Выполняются</span>
+            </span></td>
+        </tr>
         </tbody>
     </table>
 </div>

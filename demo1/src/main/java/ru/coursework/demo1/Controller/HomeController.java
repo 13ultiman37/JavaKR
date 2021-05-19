@@ -45,21 +45,23 @@ public class HomeController {
     @PreAuthorize(value = "hasAnyAuthority('ADMIN', 'USER')")
     @GetMapping("/foruser")
     public String forUser(@AuthenticationPrincipal User user, Model model) {
-        model.addAttribute("user", user.getUsername());
         model.addAttribute("name", user.getName());
+        Iterable<Order> orders = orderRepo.findAllByUserid(user.getId());
+        model.addAttribute("orders", orders);
         return "foruser";
     }
 
     @GetMapping("/order")
     public String Addingorder(){
+
         return "order";
     }
 
 
     @PostMapping("/order")
-    public String processOrder(OrderForm form){
+    public String processOrder(@AuthenticationPrincipal User user, OrderForm form){
 
-        orderRepo.save(form.toOrder());
+        orderRepo.save(form.toOrder(user));
 
         return "redirect:/foruser";
     }

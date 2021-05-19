@@ -19,6 +19,5 @@ public class Order {
     private String phone;
     private String email;
     private String notification;
-
-
+    private long userid;
 }

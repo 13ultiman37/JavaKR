@@ -1,5 +1,6 @@
 html, body{
     padding: 0 4%;
+    background-color:#eaeaea;
 }
 
 .welcome{
@@ -27,13 +28,20 @@ html, body{
     border: 1px #2a8df8 solid;
     cursor: pointer;
     border-radius: 5px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+.butt:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 3px 10px 1px rgba(0, 0, 0, 0.5);
 }
 
 .butt1{
-    width: 100%;
-    height: 60px;
+    margin-left:7.5%;
+    width: 85%;
+    height: 80px;
     font-family: "Bebas Neue Bold";
-    font-size: 30px;
+    font-size: 35px;
     letter-spacing: 1px;
     color: #fff;
     text-align: center;
@@ -44,6 +52,7 @@ html, body{
     box-shadow: 0px 17px 20px 3px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s;
 }
+
 
 .butt1:hover{
     transform: scale(1.01);
@@ -60,9 +69,68 @@ html, body{
     margin-top: 30px;
 }
 
+table{
+    border-collapse: collapse;
+    border: 2px solid white;
+    background-color: white;
+    box-shadow: 0px 17px 20px 3px rgba(0, 0, 0, 0.3);
+}
+
+.fulltable{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+.tbl .maintd{
+    font-family: "Bebas Neue Bold";
+    font-size: 30px;
+    text-align:center;
+}
+
+.tbl td{
+    width: 300px;
+    font-family: "Bebas Neue Regular";
+    font-size: 25px;
+    border: 1px black solid;
+    text-align:center;
+    padding: 10px 0px;
+}
+
+.emptylist{
+    font-family: "Bebas Neue Bold";
+    font-size: 35px;
+    padding-top: 30px;
+}
+
+.yes{
+    color: #009209;
+}
+
+.no{
+    color: #ab0000;
+}
+
+.tablerow{
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+.tablerow:hover{
+    transform: scale(1.003);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
 @font-face {
     font-family: "Bebas Neue Bold";
     src:  url("../fonts/BebasNeue Bold.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
+
+}
+
+@font-face {
+    font-family: "Bebas Neue Regular";
+    src:  url("../fonts/BebasNeue Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal
 }
