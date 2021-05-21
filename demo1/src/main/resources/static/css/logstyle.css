@@ -73,6 +73,25 @@ label {
     border-radius: 5px;
 }
 
+.redirect{
+    font-family: "Bebas Neue Bold";
+    font-size: 15px;
+    padding-left: 20px;
+}
+
+.redirect a{
+    text-decoration: none;
+}
+
+.redirect a:hover{
+    color: red;
+}
+
+.redirect a:visited{
+    color: black;
+}
+
+
 @font-face {
     font-family: "Bebas Neue Bold";
     src:  url("../fonts/BebasNeue Bold.ttf") format("truetype");
