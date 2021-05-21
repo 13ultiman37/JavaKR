@@ -21,8 +21,8 @@
         <hr>
         <form th:action="@{/order}" method="post">
             <p><label for="brand" name="brand">Марка:</label>
-                <select id="brand" name="brand" class="inbox1">
-                    <option>Выбрать...</option>
+                <select id="brand" name="brand" class="inbox1" required>
+                    <option value="" disabled selected hidden>Выбрать...</option>
                     <option>Audi</option>
                     <option>BMW</option>
                     <option>Mercedes</option>
@@ -32,12 +32,12 @@
                     <option>Land Rover</option>
                 </select>
             <p><label for="about">Модель:</label>
-                <input type='text' name="model" id="about" class="inbox2">
+                <input type='text' name="model" id="about" class="inbox2" required>
             <p><label for="request">Необходимые работы:</label>
-            <textarea type='text' name="request" id="request" class="inbox2 request"></textarea>
+            <textarea type='text' name="request" id="request" class="inbox2 request" required></textarea>
             <p><label for="noti">Предпочтительный способ уведомления о завершении работ:</label>
-                <select id="noti" name="notification" class="inbox1">
-                    <option>Выбрать...</option>
+                <select id="noti" name="notification" class="inbox1" required>
+                    <option value="" disabled selected hidden>Выбрать...</option>
                     <option>Звонок от менеджера</option>
                     <option>Письмо на E-Mail</option>
                 </select>

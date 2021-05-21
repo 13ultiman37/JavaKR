@@ -1,6 +1,8 @@
 package ru.coursework.demo1.Domain;
 
+import com.sun.istack.NotNull;
 import lombok.Data;
+import org.hibernate.annotations.BatchSize;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -8,6 +10,7 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+
 
 @Data
 @Entity

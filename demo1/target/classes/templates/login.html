@@ -20,12 +20,14 @@
         <hr>
         <form th:action="@{/login}" method="post">
             <p><label for="username">Имя пользователя:</label>
-                <input type="text" name="username" id="username" class="inbox">
+                <input type="text" name="username" id="username" class="inbox" required>
             <p><label for="pass">Пароль:</label>
-                <input type="password" name="password" id="pass" class="inbox">
+                <input type="password" name="password" id="pass" class="inbox" required>
             <p><input type="submit" value="Вход" class="butt">
         </form>
+
     </div>
 </div>
+
 </body>
 </html>

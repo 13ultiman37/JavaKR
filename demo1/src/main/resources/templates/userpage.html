@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>User page</title>
+    <link media="all" rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+    <link media="all" rel="stylesheet" th:href="@{/css/userpagestyle.css}" type="text/css">
+</head>
+<body>
+<header>
+    <div class="header_menu">
+        <a th:href="@{/}" class="header_logo"><img th:src="@{/images/logo2.png}" alt="" class="header_img"></a>
+        <span class="empty_punkt"></span>
+        <form th:if="${user != 'anonymous'}" th:action="@{/logout}" method="post">
+            <input type="submit" value="Выход" class="logout">
+        </form>
+    </div>
+</header>
+
+<a th:href="@{/foradmin}">
+    <button class="butt">Назад</button>
+</a>
+<div class="userinfo">
+    <p><span>Username: <span th:text="${username}" class="userdata"></span></span>
+    <p><span>Имя: <span th:text="${name}" class="userdata"></span></span>
+    <p><span>Телефон: <span th:text="${phone}" class="userdata"></span></span>
+    <p><span>Email: <span th:text="${email}" class="userdata"></span></span>
+</div>
+<hr>
+<span th:if="${orders.empty}" class="emptylist">Ни одного заказа в базе данных</span>
+<span th:if="${not orders.empty}" class="emptylist">История заказов пользователя:</span>
+<table>
+    <tbody class="tbl">
+    <tr th:if="${not orders.empty}">
+        <td class="maintd"> Марка </td>
+        <td class="maintd"> Модель </td>
+        <td class="maintd"> Заказ </td>
+        <td class="maintd"> Статус работ </td></tr>
+    <tr th:each="order : ${orders}" class="tablerow">
+        <td> <span th:text="${order.getBrand}"> </span></td>
+        <td> <span th:text="${order.getModel}"> </span></td>
+        <td> <span th:text="${order.getRequest}"> </span></td>
+        <td> <span th:switch="${order.completed}">
+                 <span th:case="true" class="yes">Завершено</span>
+                 <span th:case="false" class="no">Выполняются</span>
+            </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

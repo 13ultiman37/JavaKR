@@ -20,15 +20,15 @@
         <hr>
         <form th:action="@{/registration}" method="post">
             <p><label for="username">Логин:</label>
-                <input type='text' name="username" id="username" class="inbox">
+                <input type='text' name="username" id="username" class="inbox" required>
             <p><label for="pass">Пароль:</label>
-                <input type='password' name="password" id="pass" class="inbox">
+                <input type='password' name="password" id="pass" class="inbox" required>
             <p><label for='name'>Имя: </label>
-                <input type='text' name="name" id="name" class="inbox">
+                <input type='text' name="name" id="name" class="inbox" required>
             <p><label for="email">E-mail:</label>
-                <input type='text' name="email" id="email" class="inbox">
+                <input type='text' name="email" id="email" class="inbox" required>
             <p><label for="phone">Телефон:</label>
-                <input type='text' name="phone" id="phone" class="inbox">
+                <input type='text' name="phone" id="phone" class="inbox" required>
             <p><input type='submit' value="Зарегистрироваться" class="butt">
         </form>
     </div>

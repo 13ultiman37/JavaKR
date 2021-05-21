@@ -18,5 +18,55 @@
     </div>
 </header>
 
+<div class="ordertable">
+    <span th:if="${orders.empty}" class="emptylist">Ни одного заказа в базе данных</span>
+    <span th:if="${not orders.empty}" class="emptylist">База данных заказов:</span>
+    <table>
+        <tbody class="tbl">
+        <tr th:if="${not orders.empty}">
+            <td class="maintd"> ID заказа</td>
+            <td class="maintd"> ID пользователя</td>
+            <td class="maintd"> Марка</td>
+            <td class="maintd"> Модель</td>
+            <td class="maintd"> Заказ</td>
+            <td class="maintd"> Оповещение</td>
+            <td class="maintd"> Статус работ</td>
+        </tr>
+        <tr th:each="order : ${orders}" class="tablerow">
+            <td><span th:text="${order.getId}"> </span></td>
+            <td><a th:href="@{'/userpage?id='+${order.getUserid}}"><span th:text="${order.getUserid}"> </span></a></td>
+            <td><span th:text="${order.getBrand}"> </span></td>
+            <td><span th:text="${order.getModel}"> </span></td>
+            <td><span th:text="${order.getRequest}"> </span></td>
+            <td><span th:text="${order.getNotification}"> </span></td>
+            <td> <span th:switch="${order.completed}">
+                 <span th:case="true" class="yes">Завершено</span>
+                 <span th:case="false" class="no"><a th:href="@{'/completed?id='+${order.getId}}">Выполняются</a></span>
+        </span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="usertable">
+    <span th:if="${users.empty}" class="emptylist">Ни одного заказа в базе данных</span>
+    <span th:if="${not users.empty}" class="emptylist">База данных пользователей:</span>
+    <table>
+        <tbody class="tbl">
+        <tr th:if="${not users.empty}">
+            <td class="maintd"> ID</td>
+            <td class="maintd"> Email</td>
+            <td class="maintd"> Телефон</td>
+            <td class="maintd"> Юзернейм</td>
+        </tr>
+        <tr th:each="user : ${users}" class="tablerow">
+            <td><a th:href="@{'/userpage?id='+${user.getId}}"><span th:text="${user.getId}"> </span></a></td>
+            <td><span th:text="${user.getEmail}"> </span></td>
+            <td><span th:text="${user.getPhone}"> </span></td>
+            <td><span th:text="${user.getUsername}"> </span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
