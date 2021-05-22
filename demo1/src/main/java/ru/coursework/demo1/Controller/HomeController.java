@@ -1,11 +1,8 @@
 package ru.coursework.demo1.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.support.incrementer.AbstractDataFieldMaxValueIncrementer;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.web.WebAttributes;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,8 +15,7 @@ import ru.coursework.demo1.Domain.User;
 import ru.coursework.demo1.Repository.OrderRepo;
 import ru.coursework.demo1.Repository.UserRepo;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+
 import java.util.Map;
 
 @Controller
