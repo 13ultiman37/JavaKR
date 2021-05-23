@@ -15,9 +15,7 @@ public class Order {
     private String model;
     private String request;
     private boolean completed;
-    private String name;
-    private String phone;
-    private String email;
+
     private String notification;
     private long userid;
 }

@@ -9,9 +9,7 @@ public class OrderForm {
     private String model;
     private String request;
     private String notification;
-    private String email;
-    private String name;
-    private String phone;
+
     private long userid;
 
     public Order toOrder(User user){
@@ -20,9 +18,7 @@ public class OrderForm {
         order.setModel(model);
         order.setRequest(request);
         order.setNotification(notification);
-        order.setEmail(user.getEmail());
-        order.setName(user.getName());
-        order.setPhone(user.getPhone());
+
         order.setUserid(user.getId());
         return order;
     }
