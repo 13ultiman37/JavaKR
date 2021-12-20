@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.springframework.org/schema/security">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Менеджмент</title>
@@ -18,6 +18,10 @@
     </div>
 </header>
 
+<a th:href="@{/search}">
+    <button class="backbutt">Поиск</button>
+</a>
+
 <div class="ordertable">
     <span th:if="${orders.empty}" class="emptylist">Ни одного заказа в базе данных</span>
     <span th:if="${not orders.empty}" class="emptylist">База данных заказов:</span>
@@ -30,6 +34,7 @@
             <td class="maintd"> Модель</td>
             <td class="maintd"> Заказ</td>
             <td class="maintd"> Оповещение</td>
+            <td class="maintd"> ID мастера</td>
             <td class="maintd"> Статус работ</td>
         </tr>
         <tr th:each="order : ${orders}" class="tablerow">
@@ -39,6 +44,7 @@
             <td><span th:text="${order.getModel}"> </span></td>
             <td><span th:text="${order.getRequest}"> </span></td>
             <td><span th:text="${order.getNotification}"> </span></td>
+            <td><span th:text="${order.getMaster_id}" > </span></td>
             <td> <span th:switch="${order.completed}">
                  <span th:case="true" class="yes">Завершено</span>
                  <span th:case="false" class="no"><a th:href="@{'/completed?id='+${order.getId}}">Выполняются</a></span>
@@ -49,7 +55,7 @@
 </div>
 
 <div class="usertable">
-    <span th:if="${users.empty}" class="emptylist">Ни одного заказа в базе данных</span>
+    <span th:if="${users.empty}" class="emptylist">Ни одного пользователя в базе данных</span>
     <span th:if="${not users.empty}" class="emptylist">База данных пользователей:</span>
     <table>
         <tbody class="tbl">
@@ -64,6 +70,25 @@
             <td><span th:text="${user.getEmail}"> </span></td>
             <td><span th:text="${user.getPhone}"> </span></td>
             <td><span th:text="${user.getUsername}"> </span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="usertable">
+    <span th:if="${masters.empty}" class="emptylist">Ни одного мастера в базе данных</span>
+    <span th:if="${not masters.empty}" class="emptylist">База данных мастеров:</span>
+    <table>
+        <tbody class="tbl">
+        <tr th:if="${not masters.empty}">
+            <td class="maintd"> ID</td>
+            <td class="maintd"> Имя мастера</td>
+            <td class="maintd"> Специальность</td>
+        </tr>
+        <tr th:each="master : ${masters}" class="tablerow">
+            <td><span th:text="${master.getMaster_id}"> </span></td>
+            <td><span th:text="${master.getMaster_name}"> </span></td>
+            <td><span th:text="${master.getSpeciality}"> </span></td>
         </tr>
         </tbody>
     </table>

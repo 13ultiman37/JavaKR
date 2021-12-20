@@ -1,6 +1,7 @@
 package ru.coursework.demo1.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -9,13 +10,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.coursework.demo1.Domain.Order;
-import ru.coursework.demo1.Domain.OrderForm;
-import ru.coursework.demo1.Domain.User;
+import ru.coursework.demo1.Domain.*;
+import ru.coursework.demo1.Repository.MasterRepo;
 import ru.coursework.demo1.Repository.OrderRepo;
+import ru.coursework.demo1.Repository.SearchRepo;
 import ru.coursework.demo1.Repository.UserRepo;
 
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -27,6 +29,15 @@ public class HomeController {
 
     @Autowired
     UserRepo userRepo;
+
+    @Autowired
+    MasterRepo masterRepo;
+
+    @Autowired
+    SearchRepo searchRepo;
+
+    @Autowired
+    Search service;
 
     @GetMapping
     public String index(@AuthenticationPrincipal User user, Model model) {
@@ -52,6 +63,7 @@ public class HomeController {
         model.addAttribute("name", user.getName());
         Iterable<Order> orders = orderRepo.findAllByUserid(user.getId());
         model.addAttribute("orders", orders);
+
         return "foruser";
     }
 
@@ -64,18 +76,28 @@ public class HomeController {
 
     @PostMapping("/order")
     public String processOrder(@AuthenticationPrincipal User user, OrderForm form){
-
         orderRepo.save(form.toOrder(user));
-
         return "redirect:/foruser";
     }
 
+    @GetMapping("/search")
+    @PreAuthorize(value = "hasAnyAuthority('ADMIN')")
+    @RequestMapping("/search")
+    public String search(Model model, @Param("keyword") String keyword){
+        List<Order> orders = service.listAll(keyword);
+        model.addAttribute("orders", orders);
+        model.addAttribute("keyword", keyword);
+
+        return "search";
+    }
 
     @PreAuthorize(value = "hasAnyAuthority('ADMIN')")
     @GetMapping("/foradmin")
     public String forAdmin(Map<String, Object> model) {
+
         model.put("users", userRepo.findAll());
         model.put("orders", orderRepo.findAll());
+        model.put("masters", masterRepo.findAll());
         return "foradmin";
     }
 

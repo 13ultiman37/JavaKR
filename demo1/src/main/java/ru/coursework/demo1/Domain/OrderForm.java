@@ -9,7 +9,7 @@ public class OrderForm {
     private String model;
     private String request;
     private String notification;
-
+    private long master_id;
     private long userid;
 
     public Order toOrder(User user){
@@ -18,6 +18,7 @@ public class OrderForm {
         order.setModel(model);
         order.setRequest(request);
         order.setNotification(notification);
+        order.setMaster_id(0);
 
         order.setUserid(user.getId());
         return order;

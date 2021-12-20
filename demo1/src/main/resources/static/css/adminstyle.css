@@ -17,11 +17,13 @@ html, body{
 }
 
 .ordertable{
-    padding-top: 150px;
+    padding-top: 110px;
+    padding-bottom: 40px;
 }
 
 .usertable{
-    padding-top: 150px;
+    padding-top: 110px;
+    padding-bottom: 40px;
 }
 
 table{

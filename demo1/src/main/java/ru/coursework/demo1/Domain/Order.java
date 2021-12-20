@@ -15,7 +15,9 @@ public class Order {
     private String model;
     private String request;
     private boolean completed;
-
+    private long master_id;
     private String notification;
     private long userid;
 }
+
+

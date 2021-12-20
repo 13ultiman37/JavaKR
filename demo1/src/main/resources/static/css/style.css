@@ -43,6 +43,53 @@ header{
     height: auto;
 }
 
+.backbutt{
+    width: 100px;
+    height: 30px;
+    margin-top: 120px;
+    font-family: "Bebas Neue Bold";
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #fff;
+    text-align: center;
+    background-color: #2a8df8;
+    border: 1px #2a8df8 solid;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+.backbutt:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 3px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+.backbutt1{
+    width: 100px;
+    height: 30px;
+    margin-top: 20px;
+    font-family: "Bebas Neue Bold";
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #fff;
+    text-align: center;
+    background-color: #2a8df8;
+    border: 1px #2a8df8 solid;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+.backbutt1:hover{
+    transform: scale(1.01);
+    box-shadow: 0px 3px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+.emptylist1{
+    font-family: "Bebas Neue Bold";
+    font-size: 40px;
+    padding-top: 30px;
+}
 
 @font-face {
     font-family: "Bebas Neue Bold";

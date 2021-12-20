@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import ru.coursework.demo1.Controller.HomeController;
+import ru.coursework.demo1.Controller.RegistrationController;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -11,11 +12,15 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 class Demo1ApplicationTests {
 
     @Autowired
-    private HomeController controller;
+    private HomeController homeController;
+
+    @Autowired
+    private RegistrationController registrationController;
 
     @Test
     void contextLoads() throws Exception{
-        assertThat(controller).isNotNull();
+        assertThat(homeController).isNotNull();
+        assertThat(registrationController).isNotNull();
     }
 
 }
